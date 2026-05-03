@@ -10,6 +10,7 @@ import ProtectedRoute from '@/lib/ProtectedRoute';
 
 // Pages
 import Landing from './pages/Landing';
+import Login from './pages/Login';
 import MainApp from './pages/MainApp';
 import RequestAccess from './pages/RequestAccess';
 
@@ -29,6 +30,7 @@ function App() {
                * No guards, no session checks, no redirects on load.
                */}
               <Route path="/" element={<Landing />} />
+              <Route path="/login" element={<Login />} />
               <Route path="/request-access" element={<RequestAccess />} />
 
               {/*
