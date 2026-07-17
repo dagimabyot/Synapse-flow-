@@ -10,6 +10,7 @@ import ProtectedRoute from '@/lib/ProtectedRoute';
 
 // Pages
 import MainApp from './pages/MainApp';
+import Login from './pages/Login';
 
 // Add page imports here
 
@@ -22,17 +23,17 @@ function App() {
             <Routes>
 
               {/*
+               * ── PUBLIC ROUTES ──────────────────────────────────────────
+               * These routes render immediately with zero auth checks.
+               */}
+              <Route path="/" element={<Login />} />
+
+              {/*
                * ── PROTECTED ROUTES ───────────────────────────────────────
                * Wrapped in <ProtectedRoute> which handles the auth check.
                * Only these routes ever trigger an auth loading state.
-               * Unauthenticated users are sent back to "/" (not "/login").
+               * Unauthenticated users are sent back to "/" (login page).
                */}
-              <Route path="/" element={
-                <ProtectedRoute>
-                  <MainApp />
-                </ProtectedRoute>
-              } />
-
               <Route path="/dashboard" element={
                 <ProtectedRoute>
                   <MainApp />
